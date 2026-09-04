@@ -1,3 +1,4 @@
+from django.contrib.admin.views.decorators import staff_member_required
 from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib import messages
 
@@ -8,10 +9,15 @@ from .models import SupporTicket
 from users.models import Contracts, User, Companies
 
 
+# Эта панель — внутренний инструмент поддержки/модерации, доступ только
+# сотрудникам (is_staff=True), иначе любой посетитель мог бы одобрять
+# заявки, компании, договоры и тикеты.
+@staff_member_required(login_url='loginpage')
 def support_page(request):
     return render(request, 'supports/supportpage.html')
 
 
+@staff_member_required(login_url='loginpage')
 def primary_user_check(request, id):
 
     primary_user = get_object_or_404(User, id=id)
@@ -30,9 +36,11 @@ def primary_user_check(request, id):
     return render(request, 'supports/users-list.html', context)
 
 
+@staff_member_required(login_url='loginpage')
 def companies_page(request):
     return render(request, 'supports/company-list.html')
 
+@staff_member_required(login_url='loginpage')
 def company_check(request, id):
 
     company = get_object_or_404(Companies, id=id)
@@ -51,9 +59,11 @@ def company_check(request, id):
     return render(request, 'supports/companies-list.html', context)
 
 
+@staff_member_required(login_url='loginpage')
 def tickets_page(request):
     return render(request, 'supports/ticket-list.html')
 
+@staff_member_required(login_url='loginpage')
 def ticket_check(request, id):  # изменяет статус тикета
 
     support_ticket = get_object_or_404(SupporTicket, id=id)
@@ -71,9 +81,11 @@ def ticket_check(request, id):  # изменяет статус тикета
     return render(request, 'supports/ticket.html', context)
 
 
+@staff_member_required(login_url='loginpage')
 def contracts_page(request):
     return render(request, 'supports/contract-list.html')
 
+@staff_member_required(login_url='loginpage')
 def contract_check(request):
 
         contract = get_object_or_404(Contracts, id=request.POST.get('id'))
