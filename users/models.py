@@ -3,7 +3,6 @@ import uuid
 from django.utils import timezone
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 from django.db import models
-from django.db.models import OneToOneField
 
 
 # Создание менеджера пользователей
@@ -124,11 +123,11 @@ class Application(models.Model):
         return self.type_request
 
 class ApplicationCheck(models.Model):
-    application_id = models.IntegerField(OneToOneField(Application, on_delete=models.CASCADE))
+    application = models.OneToOneField(Application, on_delete=models.CASCADE)
     approved = models.IntegerField()
     action = models.CharField(max_length=255)
     application_time = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.application_id
+        return str(self.application_id)
 
