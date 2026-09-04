@@ -38,8 +38,14 @@ graph LR
 
 ### ER-диаграмма
 
-<!-- TODO: схема моделей и связей между ними. Можно сгенерировать через
-     django-extensions (`graph_models`) или отрисовать вручную, например:
+Схема БД в формате [drawDB](https://drawdb.app): [`docs/db-schema.drawdb.json`](docs/db-schema.drawdb.json)
+(File → Import diagram). 13 таблиц, 19 связей — служебные таблицы Django
+(`auth_group`, `auth_permission`, `django_session` и M2M к ним) в схему не включены.
+
+<!-- TODO: экспортировать картинку из drawDB и вставить сюда:
+![ER-диаграмма](docs/images/erd.png)
+
+     Либо отрисовать через Mermaid, например:
 
 ```mermaid
 erDiagram
