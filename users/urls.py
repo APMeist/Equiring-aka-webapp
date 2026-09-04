@@ -12,7 +12,7 @@ urlpatterns = [
     path('set-password/<uuid:token>', views.set_password_view, name='password'),
 
     path('login/', views.login_page, name='loginpage'),
-    path('logout/', views.logout, name='logout'),
+    path('logout/', views.logout_user, name='logout'),
 
     path('contracts/', views.contract_page, name='contracts'), # Контракты юзера - СПИСОК
     path('create-contract/', views.create_contract, name='contractform'),
