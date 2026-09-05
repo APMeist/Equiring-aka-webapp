@@ -48,19 +48,22 @@
 13 таблиц, 19 связей. Служебные таблицы Django (`auth_group`, `auth_permission`,
 `django_session` и M2M к ним) в схему не включены.
 
+![ER-диаграмма БД](docs/images/db-schema.png)
+
 Схема БД ведётся в [drawDB](https://drawdb.app):
 [`docs/db-schema.drawdb.json`](docs/db-schema.drawdb.json) (`File → Import diagram`).
 
 ### Исходники схем
 
-Схемы редактируются в [draw.io](https://app.diagrams.net) (`File → Open`),
-картинки выше — экспорт из них:
+Архитектура и бизнес-флоу редактируются в [draw.io](https://app.diagrams.net)
+(`File → Open`), ER-диаграмма — в [drawDB](https://drawdb.app)
+(`File → Import diagram`); картинки выше — экспорт из них:
 
 | Исходник | Экспорт |
 |---|---|
 | [`docs/architecture.drawio`](docs/architecture.drawio) | [PNG](docs/images/architecture.png) · [SVG](docs/images/architecture.svg) |
 | [`docs/business-flow.drawio`](docs/business-flow.drawio) | [PNG](docs/images/business-flow.png) · [SVG](docs/images/business-flow.svg) |
-| [`docs/db-schema.drawdb.json`](docs/db-schema.drawdb.json) | — (формат drawDB) |
+| [`docs/db-schema.drawdb.json`](docs/db-schema.drawdb.json) | [PNG](docs/images/db-schema.png) |
 
 ## Функциональность
 
