@@ -10,9 +10,6 @@
 договор (каждый проходит модерацию) → по договору проходят транзакции, а вопросы
 решаются через тикеты техподдержки.
 
-<!-- TODO: скриншот главного экрана:
-![Главный экран](docs/images/screenshot-home.png) -->
-
 ## Стек
 
 - Python 3.12+, Django 5.2
@@ -73,7 +70,28 @@
 - Личный кабинет клиента: компании, договоры, обращения в поддержку
 - Панель поддержки (доступна только `is_staff`): обработка заявок, компаний, договоров, тикетов
 
+### Известные ограничения
+
+Проект учебный и доведён не до конца — что именно не работает:
+
+- Часть страниц панели поддержки и страница установки пароля отдают ошибку:
+  вьюхи ссылаются на шаблоны и имена маршрутов, которых нет
+  (`supports/company-list.html`, `supports/ticket-list.html`,
+  `supports/contract-list.html`, `users/set_password.html`, маршрут
+  `updateticketform`). Бэкенд и вёрстка разошлись в именах.
+- Заявки внутри кабинета (`Application` / `ApplicationCheck`) существуют на
+  уровне моделей, но маршрут в `users/urls.py` закомментирован.
+- У `Transactions.sender_agreement` / `recipient_agreement` по замыслу должны
+  быть внешние ключи на `Contracts`, но на уровне БД это обычные UUID.
+- Списки на страницах кабинета пока не наполняются данными из БД — вьюхи
+  рендерят шаблоны без контекста.
+
 ## Установка и запуск
+
+### Требования
+
+- Python 3.12+ (разработка велась на 3.14)
+- PostgreSQL 14+ (разработка велась на 18)
 
 ### Локально
 
@@ -84,6 +102,17 @@ python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 cp .env.example .env   # и заполнить своими значениями
+```
+
+Создайте базу, имя которой указали в `.env` (по умолчанию `postgres`), например:
+
+```bash
+createdb -h 127.0.0.1 -U postgres postgres
+```
+
+Затем примените миграции и запустите сервер:
+
+```bash
 python manage.py migrate
 python manage.py createsuperuser
 python manage.py runserver
@@ -96,8 +125,11 @@ docker build -t equiring-webapp .
 docker run --rm -p 8000:8000 --env-file .env equiring-webapp
 ```
 
-База данных (PostgreSQL) в образ не входит — поднимите её отдельно и укажите
-адрес в `.env` (`DB_HOST`, `DB_PORT` и т.д.), см. `.env.example`.
+База данных в образ не входит — поднимите PostgreSQL отдельно и укажите адрес
+в `.env`. Учтите, что `DB_HOST=127.0.0.1` внутри контейнера указывает на сам
+контейнер, а не на хост: для базы, поднятой на хосте, используйте
+`DB_HOST=host.docker.internal` (macOS, Windows) или запуск с `--network host`
+(Linux).
 
 ## Переменные окружения
 
@@ -114,12 +146,28 @@ docker run --rm -p 8000:8000 --env-file .env equiring-webapp
 
 ## Тесты
 
+16 тестов на модели приложения `supports`, данные готовятся фабриками
+factory_boy (`tests/factories.py`):
+
 ```bash
 python manage.py test
 ```
 
-<!-- TODO: если настроите CI (GitHub Actions) — добавить сюда бейдж:
-[![CI](https://github.com/<org>/<repo>/actions/workflows/ci.yml/badge.svg)](...) -->
+Тестам нужен работающий PostgreSQL: Django создаёт отдельную базу
+`test_<DB_NAME>`, поэтому у пользователя из `.env` должно быть право `CREATEDB`.
+
+## Что посмотреть в коде
+
+Короткая навигация для ревью:
+
+| Где | Что интересного |
+|---|---|
+| [`users/models.py`](users/models.py) | Кастомная модель пользователя на `AbstractBaseUser` с `USERNAME_FIELD = 'login'` и собственным менеджером |
+| [`users/signals.py`](users/signals.py) | Активация аккаунта: по смене статуса на `approved` сигнал `post_save` заводит группу, одноразовый `RegistrationToken` на 24 часа и шлёт письмо |
+| [`users/forms.py`](users/forms.py) | Формы сужают `queryset` до объектов текущего пользователя со статусом `approved` — чтобы нельзя было привязаться к чужой компании |
+| [`supports/views.py`](supports/views.py) | Панель модерации целиком под `@staff_member_required` |
+| [`supports/models.py`](supports/models.py) | `TimeStampedModel` / `SoftDeletableModel`, работа с диалогами через статические методы |
+| [`tests/`](tests/) | Фабрики factory_boy и тесты моделей |
 
 ## Структура проекта
 
@@ -142,7 +190,13 @@ docs/       — схемы архитектуры, бизнес-флоу и БД
 
 ## Roadmap
 
+- [ ] Согласовать имена шаблонов и маршрутов между бэкендом и вёрсткой — чтобы
+      панель поддержки и страница установки пароля перестали падать
+- [ ] Наполнить страницы-списки данными (передавать queryset в контекст)
+- [ ] Подключить маршруты для `Application` / `ApplicationCheck`
+- [ ] Внешние ключи для `Transactions.sender_agreement` / `recipient_agreement`
 - [ ] Разграничение прав через `Permission`/группы вместо одного флага `is_staff`
+- [ ] Тестовое покрытие приложения `users`
 - [ ] CI (GitHub Actions): тесты + линтер
 - [ ] Docker Compose для локального поднятия PostgreSQL
-- [ ] Тестовое покрытие приложения `users`
+- [ ] Скриншоты интерфейса в README
