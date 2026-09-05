@@ -1,0 +1,175 @@
+<mxfile host="app.diagrams.net" type="device">
+  <diagram name="Архитектура приложения" id="Архитектура приложения">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1150" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="b1" value="users app — кабинет клиента" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 8;verticalAlign=top;align=left;spacing=8;fontSize=13;fontStyle=1;fontColor=#555555;fillColor=#f9fbff;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="195" y="240" width="500" height="560" as="geometry" />
+        </mxCell>
+        <mxCell id="b2" value="supports app — панель поддержки" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 8;verticalAlign=top;align=left;spacing=8;fontSize=13;fontStyle=1;fontColor=#555555;fillColor=#fffaf5;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="715" y="240" width="500" height="560" as="geometry" />
+        </mxCell>
+        <mxCell id="n3" value="Акторы" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;align=center;verticalAlign=middle;spacing=4;fillColor=none;strokeColor=none;fontStyle=1;fontColor=#666666;align=right;" vertex="1" parent="1">
+          <mxGeometry x="40" y="55" width="130" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="n4" value="HTTP / роутинг" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;align=center;verticalAlign=middle;spacing=4;fillColor=none;strokeColor=none;fontStyle=1;fontColor=#666666;align=right;" vertex="1" parent="1">
+          <mxGeometry x="40" y="150" width="130" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="n5" value="URLconf&lt;br&gt;приложений" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;align=center;verticalAlign=middle;spacing=4;fillColor=none;strokeColor=none;fontStyle=1;fontColor=#666666;align=right;" vertex="1" parent="1">
+          <mxGeometry x="40" y="265" width="130" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="n6" value="Views&lt;br&gt;+ контроль доступа" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;align=center;verticalAlign=middle;spacing=4;fillColor=none;strokeColor=none;fontStyle=1;fontColor=#666666;align=right;" vertex="1" parent="1">
+          <mxGeometry x="40" y="355" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="n7" value="Forms&lt;br&gt;(валидация)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;align=center;verticalAlign=middle;spacing=4;fillColor=none;strokeColor=none;fontStyle=1;fontColor=#666666;align=right;" vertex="1" parent="1">
+          <mxGeometry x="40" y="480" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n8" value="Models (ORM)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;align=center;verticalAlign=middle;spacing=4;fillColor=none;strokeColor=none;fontStyle=1;fontColor=#666666;align=right;" vertex="1" parent="1">
+          <mxGeometry x="40" y="620" width="130" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="n9" value="Инфраструктура" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;align=center;verticalAlign=middle;spacing=4;fillColor=none;strokeColor=none;fontStyle=1;fontColor=#666666;align=right;" vertex="1" parent="1">
+          <mxGeometry x="40" y="880" width="130" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="n10" value="Гость&lt;br&gt;(аноним)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;align=center;verticalAlign=middle;spacing=4;fillColor=#f5f5f5;strokeColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="195" y="50" width="210" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n11" value="Клиент&lt;br&gt;(авторизован)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;align=center;verticalAlign=middle;spacing=4;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="425" y="50" width="210" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n12" value="Сотрудник поддержки&lt;br&gt;(is_staff=True)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;align=center;verticalAlign=middle;spacing=4;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="655" y="50" width="250" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n13" value="Администратор&lt;br&gt;(Django admin)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;align=center;verticalAlign=middle;spacing=4;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="925" y="50" width="210" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n14" value="webapp/urls.py — корневой роутинг&lt;br&gt;'' → users.urls   ·   /support/ → supports.urls   ·   /admin/ → Django admin" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;align=center;verticalAlign=middle;spacing=4;fillColor=#f5f5f5;strokeColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="195" y="145" width="1020" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="n15" value="Middleware: Security · Session · CSRF · Authentication · Messages · Clickjacking" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;align=center;verticalAlign=middle;spacing=4;fillColor=#f5f5f5;strokeColor=#999999;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="195" y="210" width="1020" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="n16" value="users/urls.py&lt;br&gt;/, /login/, /home, /set-password/&lt;token&gt;,&lt;br&gt;/companies/, /contracts/, /tickets/" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=11;align=center;verticalAlign=middle;spacing=4;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="215" y="270" width="460" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="n17" value="supports/urls.py&lt;br&gt;/support/, /company-list/, /ticket-list/,&lt;br&gt;/contracts/, *-check" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=11;align=center;verticalAlign=middle;spacing=4;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="735" y="270" width="460" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="n18" value="users/views.py&lt;br&gt;публичные: guest_page · login_page · create_primary_user · set_password_view&lt;br&gt;кабинет (@login_required): home · companies · contracts · tickets · create_*" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=11;align=center;verticalAlign=middle;spacing=4;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="215" y="350" width="460" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="n19" value="supports/views.py&lt;br&gt;@staff_member_required (is_staff) — модерация&lt;br&gt;primary_user_check · company_check · contract_check · ticket_check" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=11;align=center;verticalAlign=middle;spacing=4;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="735" y="350" width="460" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="n20" value="users/forms.py&lt;br&gt;PrimaryUserForm · SetPasswordForm&lt;br&gt;CreateCompanyForm · CreateContractForm · CreateTicketForm&lt;br&gt;(queryset форм ограничен объектами пользователя со status=approved)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=11;align=center;verticalAlign=middle;spacing=4;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="215" y="470" width="460" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="n21" value="supports/forms.py&lt;br&gt;CheckTicketForm · CheckContractForm&lt;br&gt;CheckCompanyForm · PrimaryUserCheckForm&lt;br&gt;(смена статуса объекта модератором)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=11;align=center;verticalAlign=middle;spacing=4;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="735" y="470" width="460" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="n22" value="users/models.py&lt;br&gt;User (AbstractBaseUser, USERNAME_FIELD='login')&lt;br&gt;RegistrationToken · Companies · Contracts&lt;br&gt;Transactions · Application · ApplicationCheck" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=11;align=center;verticalAlign=middle;spacing=4;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="215" y="590" width="460" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="n23" value="supports/models.py&lt;br&gt;SupporTicket (TimeStampedModel)&lt;br&gt;TicketMessage (SoftDeletableModel)&lt;br&gt;UploadedFile" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=11;align=center;verticalAlign=middle;spacing=4;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="735" y="590" width="460" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="n24" value="users/signals.py — post_save(User)&lt;br&gt;смена status → группа пользователя,&lt;br&gt;при approved: RegistrationToken + письмо активации" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=11;align=center;verticalAlign=middle;spacing=4;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="215" y="710" width="460" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="n25" value="Шаблоны Django (users/templates, supports/templates, templates/)&lt;br&gt;+ static/styles" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=11;align=center;verticalAlign=middle;spacing=4;fillColor=#f5f5f5;strokeColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="735" y="710" width="460" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="n26" value="PostgreSQL" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;align=center;verticalAlign=middle;spacing=4;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="215" y="870" width="250" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="n27" value="Email backend&lt;br&gt;(console в dev, SMTP в prod)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=11;align=center;verticalAlign=middle;spacing=4;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="495" y="870" width="250" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="n28" value="MEDIA_ROOT&lt;br&gt;файлы тикетов" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=11;align=center;verticalAlign=middle;spacing=4;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="775" y="870" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="n29" value="Django admin&lt;br&gt;(служебные таблицы auth_*)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=11;align=center;verticalAlign=middle;spacing=4;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="1005" y="870" width="190" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="b30" value="Конфигурация и запуск" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 8;verticalAlign=top;align=left;spacing=8;fontSize=13;fontStyle=1;fontColor=#555555;fillColor=#fbfbfb;strokeColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="1245" y="240" width="300" height="350" as="geometry" />
+        </mxCell>
+        <mxCell id="n31" value=".env → webapp/settings.py&lt;br&gt;(python-dotenv)&lt;br&gt;SECRET_KEY · DEBUG · ALLOWED_HOSTS&lt;br&gt;DB_* · SITE_URL · EMAIL_*" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=11;align=center;verticalAlign=middle;spacing=4;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="1265" y="280" width="260" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="n32" value="Dockerfile&lt;br&gt;python:3.12-slim → gunicorn&lt;br&gt;webapp.wsgi:application" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=11;align=center;verticalAlign=middle;spacing=4;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="1265" y="400" width="260" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="n33" value="tests/ — factory_boy + Faker&lt;br&gt;16 тестов моделей supports" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=11;align=center;verticalAlign=middle;spacing=4;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="1265" y="495" width="260" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="e34" value="HTTP" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;jettySize=auto;orthogonalLoop=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="n10" target="n14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e35" value="HTTP + сессия" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;jettySize=auto;orthogonalLoop=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="n11" target="n14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e36" value="HTTP + сессия" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;jettySize=auto;orthogonalLoop=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="n12" target="n14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e37" value="/admin/" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;jettySize=auto;orthogonalLoop=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="n13" target="n14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e38" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;jettySize=auto;orthogonalLoop=1;labelBackgroundColor=#ffffff;dashed=1;endArrow=none;" edge="1" parent="1" source="n14" target="n15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e39" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;jettySize=auto;orthogonalLoop=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="n15" target="n16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e40" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;jettySize=auto;orthogonalLoop=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="n15" target="n17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e41" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;jettySize=auto;orthogonalLoop=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="n16" target="n18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e42" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;jettySize=auto;orthogonalLoop=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="n17" target="n19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e43" value="POST-данные" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;jettySize=auto;orthogonalLoop=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="n18" target="n20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e44" value="POST-данные" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;jettySize=auto;orthogonalLoop=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="n19" target="n21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e45" value="ORM" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;jettySize=auto;orthogonalLoop=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="n20" target="n22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e46" value="ORM" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;jettySize=auto;orthogonalLoop=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="n21" target="n23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e47" value="render" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;jettySize=auto;orthogonalLoop=1;labelBackgroundColor=#ffffff;dashed=1;" edge="1" parent="1" source="n18" target="n25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e48" value="render" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;jettySize=auto;orthogonalLoop=1;labelBackgroundColor=#ffffff;dashed=1;" edge="1" parent="1" source="n19" target="n25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e49" value="post_save" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;jettySize=auto;orthogonalLoop=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="n22" target="n24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e50" value="send_mail(ссылка активации)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;jettySize=auto;orthogonalLoop=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="n24" target="n27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e51" value="SQL" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;jettySize=auto;orthogonalLoop=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="n22" target="n26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e52" value="SQL" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;jettySize=auto;orthogonalLoop=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="n23" target="n26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e53" value="FileField&lt;br&gt;upload_to" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;jettySize=auto;orthogonalLoop=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="n23" target="n28">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e54" value="DB_*" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;jettySize=auto;orthogonalLoop=1;labelBackgroundColor=#ffffff;dashed=1;" edge="1" parent="1" source="n31" target="n26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e55" value="--env-file" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;jettySize=auto;orthogonalLoop=1;labelBackgroundColor=#ffffff;dashed=1;" edge="1" parent="1" source="n32" target="n31">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

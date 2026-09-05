@@ -17,7 +17,18 @@
 
 ## Архитектура
 
-<!-- TODO: диаграмма приложений/компонентов. Например, через Mermaid:
+Схемы в формате [draw.io](https://app.diagrams.net) (открываются через `File → Open`):
+
+| Файл | Что показывает |
+|---|---|
+| [`docs/architecture.drawio`](docs/architecture.drawio) | Слои приложения: акторы → роутинг → views (с контролем доступа) → forms → models → PostgreSQL/почта/медиа, границы приложений `users` и `supports`, конфигурация и запуск |
+| [`docs/business-flow.drawio`](docs/business-flow.drawio) | Бизнес-сценарий по дорожкам: заявка → модерация → письмо с токеном → активация аккаунта → компания → договор → транзакции и тикеты |
+| [`docs/db-schema.drawdb.json`](docs/db-schema.drawdb.json) | ER-схема БД (формат [drawDB](https://drawdb.app), `File → Import diagram`) |
+
+<!-- TODO: экспортировать PNG из draw.io и вставить сюда картинками:
+![Архитектура](docs/images/architecture.png)
+
+     Либо описать через Mermaid:
 
 ```mermaid
 graph LR

@@ -573,7 +573,7 @@
           "unique": false,
           "notNull": false,
           "increment": false,
-          "comment": "",
+          "comment": "по замыслу — договор отправителя; в схеме НЕ оформлен как FK на Contracts",
           "size": "",
           "values": []
         },
@@ -587,7 +587,7 @@
           "unique": false,
           "notNull": false,
           "increment": false,
-          "comment": "",
+          "comment": "по замыслу — договор получателя; в схеме НЕ оформлен как FK на Contracts",
           "size": "",
           "values": []
         },
