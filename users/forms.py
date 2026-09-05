@@ -18,7 +18,7 @@ class CreateTicketForm(ModelForm):
         widgets = {'contract': forms.Select()}
 
     def __init__(self, *args, **kwargs):
-        user = kwargs.pop('user')
+        user = kwargs.pop('user', None)
         super().__init__(*args, **kwargs)
 
         if user:
