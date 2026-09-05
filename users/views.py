@@ -63,7 +63,7 @@ def set_password_view(request, token): # страница создания ак�
             return redirect('userhome')
     else:
         form = SetPasswordForm(registration_token.user)
-    return render(request, "users/set_password.html", {'form': form})
+    return render(request, "users/passwordform.html", {'form': form})
 
 
 @login_required(login_url=LOGIN_URL)

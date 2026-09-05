@@ -23,22 +23,22 @@ def primary_user_check(request, id):
     primary_user = get_object_or_404(User, id=id)
 
     if request.method == 'POST':
-        form = PrimaryUserCheckForm(instance=primary_user)
+        form = PrimaryUserCheckForm(request.POST, instance=primary_user)
 
         if form.is_valid():
             form.save()
-            return redirect('supports/users-list.html')
+            return redirect('supportpage')
 
     else:
         form = PrimaryUserCheckForm(instance=primary_user)
 
     context = {'form': form}
-    return render(request, 'supports/users-list.html', context)
+    return render(request, 'supports/updateticketform.html', context)
 
 
 @staff_member_required(login_url='loginpage')
 def companies_page(request):
-    return render(request, 'supports/company-list.html')
+    return render(request, 'supports/companylist.html')
 
 @staff_member_required(login_url='loginpage')
 def company_check(request, id):
@@ -50,18 +50,18 @@ def company_check(request, id):
         form = CheckCompanyForm(request.POST, instance=company)
         if form.is_valid():
             form.save()
-            return redirect('supports/companies-list.html')
+            return redirect('companypage')
 
     else:
         form = CheckCompanyForm(instance=company)
 
     context = {'form': form}
-    return render(request, 'supports/companies-list.html', context)
+    return render(request, 'supports/updateticketform.html', context)
 
 
 @staff_member_required(login_url='loginpage')
 def tickets_page(request):
-    return render(request, 'supports/ticket-list.html')
+    return render(request, 'supports/ticketlist.html')
 
 @staff_member_required(login_url='loginpage')
 def ticket_check(request, id):  # изменяет статус тикета
@@ -73,17 +73,17 @@ def ticket_check(request, id):  # изменяет статус тикета
 
         if form.is_valid():
             form.save()
-            return redirect('supports/ticket.html')
+            return redirect('ticketpage')
     else:
         form = CheckTicketForm(instance=support_ticket)
 
     context = {'form': form}
-    return render(request, 'supports/ticket.html', context)
+    return render(request, 'supports/updateticketform.html', context)
 
 
 @staff_member_required(login_url='loginpage')
 def contracts_page(request):
-    return render(request, 'supports/contract-list.html')
+    return render(request, 'supports/contractlist.html')
 
 @staff_member_required(login_url='loginpage')
 def contract_check(request):
@@ -95,10 +95,10 @@ def contract_check(request):
             form = CheckContractForm(request.POST, instance=contract)
             if form.is_valid():
                 form.save()
-                return redirect('supports/contracts-list.html')
+                return redirect('contractspage')
 
         else:
             form = CheckContractForm(instance=contract)
 
         context = {'form': form}
-        return render(request, 'supports/contracts-list.html', context)
+        return render(request, 'supports/updateticketform.html', context)

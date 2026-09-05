@@ -9,7 +9,7 @@ urlpatterns = [
     path('home', views.home_page, name='userhome'),
 
     path('create-primary-user', views.create_primary_user, name='create-primary-user'),
-    path('set-password/<uuid:token>', views.set_password_view, name='password'),
+    path('set-password/<uuid:token>/', views.set_password_view, name='password'),
 
     path('login/', views.login_page, name='loginpage'),
     path('logout/', views.logout_user, name='logout'),
